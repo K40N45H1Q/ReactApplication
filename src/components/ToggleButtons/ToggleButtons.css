@@ -1,0 +1,28 @@
+.button-group {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+    height: 30px;
+    width: 50%;
+    border-radius: 15px;
+}
+
+.btn.active {
+    background-color: #000000;
+    color: #fff;
+    height: 30px;
+    width: 50%;
+}
