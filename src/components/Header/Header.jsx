@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 import styles from './Header.module.css';
+import { FiSend, FiHome, FiHeart, FiBook } from 'react-icons/fi';
 
-import { FiSend } from 'react-icons/fi';
-import { FiHome } from 'react-icons/fi';
-import { FiHeart } from 'react-icons/fi';
-import { FiBook } from 'react-icons/fi';
+const Header = () => {
+    const [username, setUsername] = useState('');
 
-function Header() {
+    useEffect(() => {
+        const tg = window.Telegram?.WebApp;
+        if (tg) {
+            tg.ready();
+            const user = tg.initDataUnsafe?.user;
+            setUsername(user?.username || "Guest");
+        }
+    }, []);
+
     return (
         <header className="header">
             <div className="left-section">
                 <div className="profile"></div>
                 <div className="info">
-                    <span className="username">Username</span>
+                    <span className="username">{username}</span>
                     <button className="info-btn">Personal account</button>
                 </div>
             </div>
@@ -23,12 +30,18 @@ function Header() {
                         <FiSend size={20} color="#44abff" />
                     </div>
                 </a>
-                <a className={styles.link} href="/"><FiHome size={24} color="#313131" /></a>
-                <a className={styles.link} href="/"><FiHeart size={24} color="#313131" /></a>
-                <a className={styles.link} href="/"><FiBook size={24} color="#313131" /></a>
+                <a className={styles.link} href="/">
+                    <FiHome size={24} color="#313131" />
+                </a>
+                <a className={styles.link} href="/">
+                    <FiHeart size={24} color="#313131" />
+                </a>
+                <a className={styles.link} href="/">
+                    <FiBook size={24} color="#313131" />
+                </a>
             </div>
         </header>
     );
-}
+};
 
 export default Header;
