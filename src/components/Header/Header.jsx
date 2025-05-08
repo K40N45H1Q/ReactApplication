@@ -7,11 +7,14 @@ const Header = () => {
     const [username, setUsername] = useState('');
 
     useEffect(() => {
-        const tg = window.Telegram?.WebApp;
-        if (tg) {
-            tg.ready();
-            const user = tg.initDataUnsafe?.user;
-            setUsername(user?.username || "Guest");
+        // Проверяем, доступен ли WebApp на глобальном объекте window
+        if (window.Telegram && window.Telegram.WebApp) {
+            const tg = window.Telegram.WebApp;
+            tg.ready(); // Подготовка WebApp
+
+            const user = tg.initDataUnsafe?.user; // Получение данных пользователя
+
+            setUsername(user?.username || 'Guest'); // Установим имя пользователя или 'Guest'
         }
     }, []);
 
