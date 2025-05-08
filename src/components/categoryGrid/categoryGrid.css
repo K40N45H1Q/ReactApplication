@@ -1,0 +1,6 @@
+.CategoryGrid {
+    gap: 10px;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

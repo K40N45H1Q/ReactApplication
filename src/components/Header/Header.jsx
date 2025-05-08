@@ -12,6 +12,10 @@ function Header() {
         <header className="header">
             <div className="left-section">
                 <div className="profile"></div>
+                <div className="info">
+                    <span className="username">Username</span>
+                    <button>Personal account</button>
+                </div>
             </div>
             <div className="right-section">
                 <a className={styles.iconWrapper} href="/">

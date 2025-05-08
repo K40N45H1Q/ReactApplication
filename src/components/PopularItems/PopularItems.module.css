@@ -1,0 +1,21 @@
+.PopularItems {
+    color: black;
+}
+
+.Title {
+    margin-top: 15px;
+}
+
+.ProductGrid {
+    gap: 10px;
+    display: grid;
+    margin-top: 11px;
+    margin-bottom: 11px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ProductImage {
+    width: 225px;
+    height: 225px;
+    background: black;
+}
