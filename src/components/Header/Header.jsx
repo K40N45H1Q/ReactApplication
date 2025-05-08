@@ -14,7 +14,7 @@ function Header() {
                 <div className="profile"></div>
                 <div className="info">
                     <span className="username">Username</span>
-                    <button>Personal account</button>
+                    <button className="info-btn">Personal account</button>
                 </div>
             </div>
             <div className="right-section">
