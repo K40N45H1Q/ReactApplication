@@ -19,8 +19,24 @@ function PopularItems() {
             <h1 className={styles.Title}>Popular products</h1>
             <div className={styles.ProductGrid}>
                 {products.map((product) => (
-                    <div key={product.name} className={styles.ProductImage}>
-                        [{product.name}]
+                    <div key={product.name} className={styles.ProductCard}>
+                        <div className={styles.ProductImage}>
+                            {product.image_url ? (
+                                <img
+                                    src={product.image_url}
+                                    alt={product.name}
+                                    className={styles.ProductImg}
+                                />
+                            ) : (
+                                <div className={styles.ImagePlaceholder}>
+                                    {product.name}
+                                </div>
+                            )}
+                        </div>
+                        <div className={styles.ProductInfo}>
+                            <p className={styles.ProductName}>{product.name}</p>
+                            <p className={styles.ProductPrice}>€{product.price.toFixed(2)}</p>
+                        </div>
                     </div>
                 ))}
             </div>

@@ -5,4 +5,43 @@
     height: 100%;
     padding: 30px 12px;
     background: black;
+    color: white;
+    font-weight: 700;
+
+    /* контур через text-shadow */
+    text-shadow:
+            0 0 2px #000,
+            0 0 6px rgba(0, 0, 0, 0.7),
+            1px 1px 8px rgba(0, 0, 0, 0.6),
+            2px 2px 10px rgba(0, 0, 0, 0.4);
 }
+
+/* Vibrant Cotton Candy */
+.gradient-a {
+    background: linear-gradient(135deg, #ff6ec7, #5b9dff);
+}
+
+/* Bold Bubblegum */
+.gradient-b {
+    background: linear-gradient(135deg, #ff4fa6, #69caff);
+}
+
+/* Electric Mist */
+.gradient-c {
+    background: linear-gradient(135deg, #ff75d1, #40e0ff);
+}
+
+/* Aurora Beam */
+.gradient-d {
+    background: linear-gradient(135deg, #ff94f8, #6594ff);
+}
+
+/* Icy Rose Intense */
+.gradient-e {
+    background: linear-gradient(135deg, #70e4ff, #ff6fd8);
+}
+
+.gradient-i {
+    background: linear-gradient(135deg, #d16ba5, #86a8e7, #5ffbf1);
+}
+

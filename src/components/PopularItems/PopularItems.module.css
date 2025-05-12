@@ -7,21 +7,42 @@
 }
 
 .ProductGrid {
-    gap: 10px;
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     margin-top: 11px;
     margin-bottom: 11px;
-    grid-template-columns: repeat(2, 1fr);
+}
+
+.ProductCard {
+    display: flex;
+    flex-direction: column;
 }
 
 .ProductImage {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.ProductImg {
     width: 100%;
     height: 100%;
-    aspect-ratio: 1/1;
-    background: black;
-    border-radius: 15px;
+    object-fit: cover;
+    display: block;
+}
+
+.ProductPrice {
+    font-weight: bold;
+}
+
+.ProductName {
+    font-size: 15px;
+}
+
+.ProductInfo {
+    margin-top: 5px;
 }

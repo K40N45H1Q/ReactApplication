@@ -48,10 +48,16 @@ span {
 }
 
 .info-btn {
+    cursor: pointer;
     color: white;
     border: none;
     padding: 3px 6px;
-    background: black;
+    background: linear-gradient(135deg, #ff6ec7, #5b9dff);
+    text-shadow:
+            0 0 2px #000,
+            0 0 6px rgba(0, 0, 0, 0.7),
+            1px 1px 8px rgba(0, 0, 0, 0.6),
+            2px 2px 10px rgba(0, 0, 0, 0.4);
     border-radius: 15px;
     font-size: 10px;
 }

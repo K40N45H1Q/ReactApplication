@@ -21,7 +21,12 @@
 }
 
 .btn.active {
-    background-color: #000000;
+    background: linear-gradient(135deg, #ff6ec7, #5b9dff);
+    text-shadow:
+            0 0 2px #000,
+            0 0 6px rgba(0, 0, 0, 0.7),
+            1px 1px 8px rgba(0, 0, 0, 0.6),
+            2px 2px 10px rgba(0, 0, 0, 0.4);
     color: #fff;
     height: 30px;
     width: 50%;
