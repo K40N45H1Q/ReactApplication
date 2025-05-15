@@ -51,22 +51,22 @@ function CategoryGrid() {
                         <div className={styles.categoryText}>{cat.name}</div>
 
                         {cat.name === "Footwear" && (
-                            <img src={footwearImg} alt="Footwear" className={`${styles.categoryImage} ${styles.footwearImage}`} />
+                            <img src={footwearImg} alt="Footwear" className={`${styles.categoryImage} ${styles.footwearImage}`} loading="lazy" />
                         )}
                         {cat.name === "Bags" && (
-                            <img src={bagsImg} alt="Bags" className={`${styles.categoryImage} ${styles.bagsImage}`} />
+                            <img src={bagsImg} alt="Bags" className={`${styles.categoryImage} ${styles.bagsImage}`} loading="lazy"/>
                         )}
                         {cat.name === "Accessories" && (
-                            <img src={accessoriesImg} alt="Accessories" className={`${styles.categoryImage} ${styles.accessoriesImg}`} />
+                            <img src={accessoriesImg} alt="Accessories" className={`${styles.categoryImage} ${styles.accessoriesImg}`} loading={"lazy"}/>
                         )}
                         {cat.name === "Watches" && (
-                            <img src={watchesImg} alt="Watches" className={`${styles.categoryImage} ${styles.watchesImage}`} />
+                            <img src={watchesImg} alt="Watches" className={`${styles.categoryImage} ${styles.watchesImage}`} loading={"lazy"}/>
                         )}
                         {cat.name === "Trappings" && (
-                            <img src={glassesImg} alt="Trappings" className={`${styles.categoryImage} ${styles.trappingsImage}`} />
+                            <img src={glassesImg} alt="Trappings" className={`${styles.categoryImage} ${styles.trappingsImage}`} loading={"lazy"}/>
                         )}
                         {cat.name === "Outerwear" && (
-                            <img src={outerwearImg} alt="Outerwear" className={`${styles.categoryImage} ${styles.outerwearImage}`} />
+                            <img src={outerwearImg} alt="Outerwear" className={`${styles.categoryImage} ${styles.outerwearImage}`} loading={"lazy"}/>
                         )}
                     </div>
                 );
