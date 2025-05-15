@@ -21,12 +21,12 @@
 }
 
 .btn.active {
-    background: linear-gradient(135deg, #ff6ec7, #5b9dff);
+    background: linear-gradient(135deg, rgba(255, 110, 199, 0.8), rgba(91, 157, 255, 0.8));
     text-shadow:
-            0 0 2px #000,
-            0 0 6px rgba(0, 0, 0, 0.7),
-            1px 1px 8px rgba(0, 0, 0, 0.6),
-            2px 2px 10px rgba(0, 0, 0, 0.4);
+            0 0 3px rgba(0, 0, 0, 0.3),
+            0 0 8px rgba(0, 0, 0, 0.5),
+            2px 2px 15px rgba(0, 0, 0, 0.7),
+            2px 2px 20px rgba(0, 0, 0, 0.8);
     color: #fff;
     height: 30px;
     width: 50%;
