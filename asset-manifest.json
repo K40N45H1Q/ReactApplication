@@ -1,13 +1,19 @@
 {
   "files": {
-    "main.css": "/ReactApplication/static/css/main.1e8dbd50.css",
-    "main.js": "/ReactApplication/static/js/main.c4ef94f5.js",
+    "main.css": "/ReactApplication/static/css/main.0a568096.css",
+    "main.js": "/ReactApplication/static/js/main.29487215.js",
+    "static/media/hoodie.png": "/ReactApplication/static/media/hoodie.4ae7a7fdf7e29c995a2c.png",
+    "static/media/bags-img.png": "/ReactApplication/static/media/bags-img.3e85d3044805a5266acf.png",
+    "static/media/glassess.png": "/ReactApplication/static/media/glassess.74015337834a8a7bd134.png",
+    "static/media/watches-img.png": "/ReactApplication/static/media/watches-img.c5cb7d1d10e2551070fc.png",
+    "static/media/footwear-img.png": "/ReactApplication/static/media/footwear-img.3fe63c38923c2605c314.png",
+    "static/media/accessories.png": "/ReactApplication/static/media/accessories.a6822bf35601750cff6c.png",
     "index.html": "/ReactApplication/index.html",
-    "main.1e8dbd50.css.map": "/ReactApplication/static/css/main.1e8dbd50.css.map",
-    "main.c4ef94f5.js.map": "/ReactApplication/static/js/main.c4ef94f5.js.map"
+    "main.0a568096.css.map": "/ReactApplication/static/css/main.0a568096.css.map",
+    "main.29487215.js.map": "/ReactApplication/static/js/main.29487215.js.map"
   },
   "entrypoints": [
-    "static/css/main.1e8dbd50.css",
-    "static/js/main.c4ef94f5.js"
+    "static/css/main.0a568096.css",
+    "static/js/main.29487215.js"
   ]
 }
