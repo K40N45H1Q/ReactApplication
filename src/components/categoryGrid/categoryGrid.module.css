@@ -1,85 +1,103 @@
-.CategoryItem {
+.CategoryGrid {
+    margin: 15px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Фиксим проблему переполнения */
+    gap: 10px;
+    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 700px;
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
 
-    cursor: pointer;
-    border-radius: 15px;
-    width: 100%;
-    height: 100px;
-    padding: 10px 12px;
-    background: black;
-    color: white;
+.CategoryItem {
     position: relative;
-    font-size: 15px;
-    font-weight: 700;
+    border-radius: 15px;
     overflow: hidden;
+    aspect-ratio: 2 / 1;
+    background: #000;
+    width: 100%; /* Гарантируем полную ширину */
+}
+
+.categoryText {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: clamp(1px, 3vw, 16px); /* Адаптивный размер текста */
+    text-align: left;
+    z-index: 10;
+    width: 45%;
     text-shadow:
-            0 0 3px rgba(0, 0, 0, 0.3),
-            0 0 8px rgba(0, 0, 0, 0.5),
-            2px 2px 15px rgba(0, 0, 0, 0.7),
-            2px 2px 20px rgba(0, 0, 0, 0.8);
+            1px 1px 2px rgba(0,0,0,0.8),
+            0 0 4px rgba(0,0,0,0.6);
+    white-space: normal;
+    box-sizing: border-box;
 }
 
 .categoryImage {
     position: absolute;
-    height: auto;
-    max-width: 100%;
+    height: 90%;
+    width: auto;
+    object-fit: contain;
+    pointer-events: none;
+    max-width: 80%; /* Предотвращаем переполнение */
 }
 
-/* Footwear-specific */
+/* Оптимизированное позиционирование изображений */
 .footwearImage {
-    width: 80%;         /* адаптивная ширина */
-    top: 3%;
-    left: -10%;
+    height: auto;
+    width: 100%;
+    right: 28%;
+    bottom: -10%;
     transform: rotate(-10deg);
 }
 
-/* Watches-specific */
 .watchesImage {
-    width: 55%;
-    top: -12%;
-    left: 68%;
-    transform: translateX(-50%) rotate(10deg); /* центрирование + вращение */
+    height: auto;
+    right: 5%;
+    width: 60%;
+    bottom: -10%;
+    transform: rotate(10deg);
 }
 
 .bagsImage {
-    width: 80%;
-    top: -12%;
-    left: 43%;
-    transform: rotate(0deg);
+    height: auto;
+    width: 65%;
+    left: 22%;
+    bottom: -14%;
 }
 
 .accessoriesImg {
-    width: 70%;
-    top: -28%;
-    left: 42%;
+    height: auto;
+    width: 100%;
+    right: -18%;
+    bottom: -39%;
     transform: rotate(-14deg);
 }
 
-/* Vibrant Cotton Candy */
-.gradient-a {
-    background: linear-gradient(135deg, rgba(255, 110, 199, 0.8), rgba(91, 157, 255, 0.8));
+.glassessImage {
+    right: 10%;
+    bottom: -15%;
 }
 
-/* Bold Bubblegum */
-.gradient-b {
-    background: linear-gradient(135deg, rgba(255, 79, 166, 0.8), rgba(105, 202, 255, 0.8));
+.trappingsImage {
+    right: -13%;
+    bottom: 7%;
+    transform: rotate(10deg);
 }
 
-/* Electric Mist */
-.gradient-c {
-    background: linear-gradient(135deg, rgba(255, 117, 209, 0.8), rgba(64, 224, 255, 0.8));
+.outerwearImage {
+    height: auto;
+    width: 90%;
+    right: -20%;
+    top: -15%;
+    transform: rotate(-22deg);
 }
 
-/* Aurora Beam */
-.gradient-d {
-    background: linear-gradient(135deg, rgba(255, 148, 248, 0.8), rgba(101, 148, 255, 0.8));
-}
-
-/* Icy Rose Intense */
-.gradient-e {
-    background: linear-gradient(135deg, rgba(112, 228, 255, 0.8), rgba(255, 111, 216, 0.8));
-}
-
-.gradient-i {
-    background: linear-gradient(135deg, rgba(209, 107, 165, 0.8), rgba(134, 168, 231, 0.8), rgba(95, 251, 241, 0.8));
-}
-
+/* Градиенты */
+.gradient-a { background: linear-gradient(135deg, #ff6ec7, #5b9dff); }
+.gradient-b { background: linear-gradient(135deg, #ff4fa6, #69caff); }
+.gradient-c { background: linear-gradient(135deg, #ff75d1, #40e0ff); }
+.gradient-d { background: linear-gradient(135deg, #ff94f8, #6594ff); }
+.gradient-e { background: linear-gradient(135deg, #70e4ff, #ff6fd8); }
+.gradient-i { background: linear-gradient(135deg, #d16ba5, #86a8e7, #5ffbf1); }
