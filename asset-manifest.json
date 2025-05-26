@@ -1,19 +1,24 @@
 {
   "files": {
-    "main.css": "/ReactApplication/static/css/main.0a568096.css",
-    "main.js": "/ReactApplication/static/js/main.29487215.js",
-    "static/media/hoodie.png": "/ReactApplication/static/media/hoodie.4ae7a7fdf7e29c995a2c.png",
-    "static/media/bags-img.png": "/ReactApplication/static/media/bags-img.3e85d3044805a5266acf.png",
-    "static/media/glassess.png": "/ReactApplication/static/media/glassess.74015337834a8a7bd134.png",
-    "static/media/watches-img.png": "/ReactApplication/static/media/watches-img.c5cb7d1d10e2551070fc.png",
-    "static/media/footwear-img.png": "/ReactApplication/static/media/footwear-img.3fe63c38923c2605c314.png",
+    "main.css": "/ReactApplication/static/css/main.c6226285.css",
+    "main.js": "/ReactApplication/static/js/main.b895298c.js",
+    "static/media/watches_gold_women.png": "/ReactApplication/static/media/watches_gold_women.6e4c63b8b8a746d5d892.png",
+    "static/media/fw_women.png": "/ReactApplication/static/media/fw_women.aa6fd18d668e8cd0c11b.png",
+    "static/media/fw.png": "/ReactApplication/static/media/fw.0f60924b193195a3c0ce.png",
     "static/media/accessories.png": "/ReactApplication/static/media/accessories.a6822bf35601750cff6c.png",
+    "static/media/balenciaga.png": "/ReactApplication/static/media/balenciaga.cbb606b90d02ce8c6713.png",
+    "static/media/watches_gold.png": "/ReactApplication/static/media/watches_gold.46e394c89841dbe5bbc2.png",
+    "static/media/balenciaga_women.png": "/ReactApplication/static/media/balenciaga_women.65346211adac3f0c1aa8.png",
+    "static/media/bag-DR.png": "/ReactApplication/static/media/bag-DR.1f847d6b30395883b588.png",
+    "static/media/perc.png": "/ReactApplication/static/media/perc.5bf88765f7fcade2eeda.png",
+    "static/media/bag_women.png": "/ReactApplication/static/media/bag_women.412fd06222aa4e7726b1.png",
+    "static/media/technique1.png": "/ReactApplication/static/media/technique1.fd78a5c3fa8285a26923.png",
     "index.html": "/ReactApplication/index.html",
-    "main.0a568096.css.map": "/ReactApplication/static/css/main.0a568096.css.map",
-    "main.29487215.js.map": "/ReactApplication/static/js/main.29487215.js.map"
+    "main.c6226285.css.map": "/ReactApplication/static/css/main.c6226285.css.map",
+    "main.b895298c.js.map": "/ReactApplication/static/js/main.b895298c.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a568096.css",
-    "static/js/main.29487215.js"
+    "static/css/main.c6226285.css",
+    "static/js/main.b895298c.js"
   ]
 }
