@@ -3,7 +3,7 @@
     padding: 15px;
 }
 
-/* Состояния загрузки и ошибок */
+/* Состояния */
 .loading {
     display: flex;
     justify-content: center;
@@ -21,13 +21,13 @@
     height: 100%;
     color: #000;
     display: flex;
-    aspect-ratio: 1/1;
     align-items: center;
     justify-content: center;
+    margin: 20px 0;
 }
 
-/* Поле поиска */
-.search-input {
+/* Поиск */
+.searchInput {
     width: 100%;
     height: 33px;
     border: none;
@@ -37,11 +37,11 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Кнопки фильтрации */
-.button-group {
+/* Кнопки фильтра */
+.buttonGroup {
     gap: 10px;
     display: flex;
-    margin-top: 15px;
+    margin: 15px 0;
 }
 
 .btn {
@@ -61,115 +61,117 @@
 }
 
 .btn.active {
-    width: 50%;
-    height: 30px;
     color: #fff;
     text-shadow:
         0 0 3px rgba(0, 0, 0, 0.3),
-        0 0 8px rgba(0, 0, 0, 0.5),
-        2px 2px 15px rgba(0, 0, 0, 0.7),
-        2px 2px 20px rgba(0, 0, 0, 0.8);
+        0 0 8px rgba(0, 0, 0, 0.5);
     background: linear-gradient(135deg, rgba(255, 110, 199, 0.8), rgba(91, 157, 255, 0.8));
 }
 
-.CategoryGrid {
-    margin: 15px auto 0;
+/* Заголовки */
+.sectionTitle {
+    margin: 20px 0 15px;
+    color: black;
+    font-size: 1.2rem;
+}
+
+/* Сетка категорий */
+.categoryGrid {
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
     width: 100%;
-    max-width: 700px;
     box-sizing: border-box;
 }
 
-.CategoryItem {
+.categoryItem {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
     aspect-ratio: 2 / 1;
-    background: #000;
     width: 100%;
 }
 
+/* Заголовок внутри карточки */
 .categoryText {
     position: absolute;
     top: 10px;
     left: 10px;
     color: white;
     font-weight: 700;
-    font-size: clamp(1px, 3vw, 16px);
-    text-align: left;
+    font-size: clamp(12px, 3vw, 16px);
     z-index: 10;
     width: 45%;
-    text-shadow:
-        1px 1px 2px rgba(0,0,0,0.8),
-        0 0 4px rgba(0,0,0,0.6);
-    white-space: normal;
-    box-sizing: border-box;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
 .categoryImage {
+    height: auto;
     position: absolute;
-    height: 90%;
-    width: auto;
     object-fit: contain;
     pointer-events: none;
-    max-width: 80%;
-}
-
-/* Позиционирование конкретных изображений категорий */
-.footwearImage {
-    height: auto;
-    width: 100%;
-    right: 28%;
-    bottom: -10%;
-    transform: rotate(-10deg);
-}
-
-.watchesImage {
-    height: auto;
-    right: 5%;
-    width: 60%;
-    bottom: -10%;
-    transform: rotate(10deg);
 }
 
 .bagsImage {
-    bottom: -54px;
-    right: -10px;
-    transform: rotate(50deg) !important;
-    width: 150px;
+    left: 35%;
+    top: -18%;
+    width: 80%;
+    transform: rotate(15deg);
 }
 
-
-.accessoriesImg {
-    height: auto;
-    width: 100%;
-    right: -18%;
-    bottom: -39%;
-    transform: rotate(-14deg);
+.footwearImage {
+    top: 33%;
+    left: -6%;
+    width: 70%;
+    transform: rotate(-7deg);
 }
 
-.glassessImage {
+.watchesImage {
+    top: -30%;
+    width: 75%;
+    right: -10%;
+    transform: rotate(26deg);
+}
+
+.watchesImageFemale {
+    top: 0;
+    width: 30%;
     right: 10%;
-    bottom: -15%;
-}
-
-.trappingsImage {
-    right: -13%;
-    bottom: 7%;
-    transform: rotate(10deg);
+    transform: rotate(26deg);
 }
 
 .outerwearImage {
-    height: auto;
-    width: 90%;
-    right: -20%;
-    top: -15%;
-    transform: rotate(-22deg);
+    top: 22%;
+    left: -6%;
+    width: 70%;
+    transform: rotate(18deg);
 }
 
-/* Градиенты для категорий */
+.trappingsImage {
+    top: 20%;
+    left: 30%;
+    width: 75%;
+    transform: scaleX(-1);
+}
+
+.techniqueImageAlt {
+    z-index: 1;
+    width: 50%;
+    right: -1%;
+    bottom: -18%;
+    transform: rotate(1deg);
+}
+
+.techniqueImage {
+    z-index: 2;
+    transform: rotate(10deg);
+    width: 35%;
+    bottom: 0;
+    right: 20%;
+}
+
+/* Градиенты */
 .gradient-a { background: linear-gradient(135deg, #ff6ec7, #5b9dff); }
 .gradient-b { background: linear-gradient(135deg, #ff4fa6, #69caff); }
 .gradient-c { background: linear-gradient(135deg, #ff75d1, #40e0ff); }
@@ -177,26 +179,27 @@
 .gradient-e { background: linear-gradient(135deg, #70e4ff, #ff6fd8); }
 .gradient-i { background: linear-gradient(135deg, #d16ba5, #86a8e7, #5ffbf1); }
 
-/* Сетка товаров (полностью ваш оригинальный стиль) */
+/* Сетка товаров */
 .productGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    margin-top: 11px;
-    margin-bottom: 11px;
+    margin: 15px 0;
 }
 
 .productCard {
     display: flex;
     flex-direction: column;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .productImage {
     width: 100%;
     aspect-ratio: 1 / 1;
-    border-radius: 15px;
-    overflow: hidden;
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
     position: relative;
 }
 
@@ -204,7 +207,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
 .imagePlaceholder {
@@ -215,22 +217,51 @@
     justify-content: center;
     color: #666;
     font-size: 14px;
+    padding: 10px;
+    text-align: center;
 }
 
 .productInfo {
-    margin-top: 5px;
+    padding: 12px;
 }
 
 .productName {
-    font-size: 15px;
+    color: black;
+    font-size: 14px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .productPrice {
     font-weight: bold;
+    color: #2a5885;
+    font-size: 15px;
 }
 
-/* Заголовки разделов */
-.sectionTitle {
-    margin-top: 15px;
-    color: black;
+/* Hover effect for category items */
+.categoryItem:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for product cards */
+.productCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Add transitions to base elements */
+.categoryItem,
+.btn,
+.productCard {
+    transition: all 0.3s ease;
+}
+
+/* Search input hover/focus effect */
+.searchInput:hover,
+.searchInput:focus {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
