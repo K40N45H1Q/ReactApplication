@@ -1,0 +1,33 @@
+.defaultButton {
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 110, 199, 0.85),
+        rgba(91, 157, 255, 0.85)
+    );
+
+    text-shadow:
+        0 0 4px rgba(0, 0, 0, 0.35),
+        0 0 10px rgba(0, 0, 0, 0.5),
+        3px 3px 18px rgba(0, 0, 0, 0.75),
+        3px 3px 25px rgba(0, 0, 0, 0.85);
+
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.defaultButton:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 90, 170, 1),
+        rgba(70, 130, 255, 1)
+    );
+
+    box-shadow: 0 2px 20px rgba(70, 130, 255, 0.8);
+}

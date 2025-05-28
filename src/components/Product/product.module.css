@@ -1,0 +1,100 @@
+/* Родительский контейнер для карточки, должен занимать доступное место */
+.wrapper {
+  display: flex;
+  justify-content: center;  /* центр по горизонтали */
+  align-items: center;      /* центр по вертикали */
+  min-height: 60vh;         /* исправлено с 902vh на 60vh */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+/* Карточка */
+.productCard {
+  width: 400px;
+  max-width: 90vw;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: #fff;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* остальное оставляем как было */
+.productTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.productImage {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background-color: #f9f9f9;
+}
+
+.productPrice {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.8rem;
+  color: #e63946;
+  text-align: center;
+}
+
+.quantityLabel {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1.8rem;
+}
+
+.quantityInput {
+  width: 60px;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.quantityInput:focus {
+  outline: none;
+  border-color: #3a86ff;
+  box-shadow: 0 0 4px #3a86ff;
+}
+
+.addToCartBtn {
+  background-color: #3a86ff;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.addToCartBtn:hover {
+  background-color: #2f6fdb;
+}
+
+.loading, .error {
+  max-width: 480px;
+  margin: 2rem auto;
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+}

@@ -60,12 +60,20 @@
     border-radius: 15px;
 }
 
-.btn.active {
+.btn.active, .cart-btn {
     color: #fff;
     text-shadow:
         0 0 3px rgba(0, 0, 0, 0.3),
         0 0 8px rgba(0, 0, 0, 0.5);
     background: linear-gradient(135deg, rgba(255, 110, 199, 0.8), rgba(91, 157, 255, 0.8));
+}
+
+.cart-btn {
+    cursor: pointer;
+    border: none;
+    padding: 3%;
+    font-size: 12px;
+    border-radius: 15px;
 }
 
 /* Заголовки */
@@ -93,7 +101,6 @@
     width: 100%;
 }
 
-/* Заголовок внутри карточки */
 .categoryText {
     position: absolute;
     top: 10px;
@@ -179,6 +186,13 @@
 .gradient-e { background: linear-gradient(135deg, #70e4ff, #ff6fd8); }
 .gradient-i { background: linear-gradient(135deg, #d16ba5, #86a8e7, #5ffbf1); }
 
+.productLink {
+  text-decoration: none;
+  color: inherit; /* сохраняет цвет текста */
+  display: block; /* если нужно сделать кликабельной всю зону */
+}
+
+
 /* Сетка товаров */
 .productGrid {
     display: grid;
@@ -188,6 +202,7 @@
 }
 
 .productCard {
+    position: relative;
     display: flex;
     flex-direction: column;
     background: white;
@@ -222,7 +237,7 @@
 }
 
 .productInfo {
-    padding: 12px;
+    padding: 7px;
 }
 
 .productName {
