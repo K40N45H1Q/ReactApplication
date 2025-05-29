@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ReactApplication/static/css/main.c6226285.css",
-    "main.js": "/ReactApplication/static/js/main.b895298c.js",
+    "main.css": "/ReactApplication/static/css/main.7487e074.css",
+    "main.js": "/ReactApplication/static/js/main.537b6542.js",
     "static/media/watches_gold_women.png": "/ReactApplication/static/media/watches_gold_women.6e4c63b8b8a746d5d892.png",
     "static/media/fw_women.png": "/ReactApplication/static/media/fw_women.aa6fd18d668e8cd0c11b.png",
     "static/media/fw.png": "/ReactApplication/static/media/fw.0f60924b193195a3c0ce.png",
@@ -14,11 +14,11 @@
     "static/media/bag_women.png": "/ReactApplication/static/media/bag_women.412fd06222aa4e7726b1.png",
     "static/media/technique1.png": "/ReactApplication/static/media/technique1.fd78a5c3fa8285a26923.png",
     "index.html": "/ReactApplication/index.html",
-    "main.c6226285.css.map": "/ReactApplication/static/css/main.c6226285.css.map",
-    "main.b895298c.js.map": "/ReactApplication/static/js/main.b895298c.js.map"
+    "main.7487e074.css.map": "/ReactApplication/static/css/main.7487e074.css.map",
+    "main.537b6542.js.map": "/ReactApplication/static/js/main.537b6542.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6226285.css",
-    "static/js/main.b895298c.js"
+    "static/css/main.7487e074.css",
+    "static/js/main.537b6542.js"
   ]
 }
