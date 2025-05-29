@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Header.css';
 import styles from './Header.module.css';
 import shared from '../../shared.module.css'
-import { FiSend, FiHome, FiHeart, FiBook } from 'react-icons/fi';
+import { FiSend, FiHome, FiHeart, FiShoppingCart } from 'react-icons/fi';
 
 const API_BASE_URL = "https://reactapplicationapi.onrender.com";
 
@@ -40,7 +40,7 @@ const Header = () => {
                 <div className="info">
                     <span className="username">{username}</span>
                     <button className={shared.defaultButton} style={{ padding: '3px 6px', fontSize: '10px' }}>
-                    Personal account
+                        Personal account
                     </button>
                 </div>
             </div>
@@ -53,11 +53,8 @@ const Header = () => {
                 <a className={styles.link} href="/">
                     <FiHome size={24} color="#313131" />
                 </a>
-                <a className={styles.link} href="/">
-                    <FiHeart size={24} color="#313131" />
-                </a>
                 <a className={styles.link} href="/cart">
-                    <FiBook size={24} color="#313131" />
+                    <FiShoppingCart size={24} color="#313131" />  {/* <-- тут иконка корзины */}
                 </a>
             </div>
         </header>

@@ -165,17 +165,17 @@ function Catalog() {
                     loading="lazy"
                   />
                 )}
-                {cat === "Accessories" && (
+                {cat === "Technique" && (
                   <>
                     <img
                       src={technique1}
-                      alt="Accessories 1"
+                      alt="Technique 1"
                       className={`${styles.categoryImage} ${styles.techniqueImage}`}
                       loading="lazy"
                     />
                     <img
                       src={technique2}
-                      alt="Accessories 2"
+                      alt="Technique 2"
                       className={`${styles.categoryImage} ${styles.techniqueImageAlt}`}
                       loading="lazy"
                     />

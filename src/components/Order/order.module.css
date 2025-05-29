@@ -1,0 +1,56 @@
+.orderPage {
+  display: flex;
+  margin: 0 auto;
+  background-color: #F5F5F5;
+  height: max-content;
+  padding: 0 15px;
+  margin-top: 15px;
+}
+
+.form {
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(56, 53, 53, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 4px rgba(0, 119, 204, 0.2);
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0077cc;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #005fa3;
+}

@@ -1,15 +1,14 @@
-/* Общий контейнер корзины */
 .cart {
   max-width: 900px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #fff;
-  border-radius: 12px;
+  background-color: #F5F5F5;
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   color: #222;
+  padding: 2rem;
+  margin: auto;
+  position: relative;
+  border-radius: 10px;
 }
 
-/* Пустая корзина */
 .empty {
   max-width: 400px;
   margin: 3rem auto;
@@ -19,10 +18,10 @@
   font-style: italic;
 }
 
-/* Карточка товара в корзине */
 .cartItem {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 1.5rem;
   padding: 1rem 0;
   border-bottom: 1px solid #eee;
@@ -32,7 +31,6 @@
   border-bottom: none;
 }
 
-/* Изображение товара */
 .cartImage {
   width: 100px;
   height: 100px;
@@ -42,75 +40,58 @@
   background-color: #f9f9f9;
 }
 
-/* Блок с информацией о товаре */
-.cartItem > div {
+.cartItemContent {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Название товара */
-.cartItem h4 {
+.cartItemContent h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
   color: #1a1a1a;
 }
 
-/* Текст с ценой, количеством и суммой */
-.cartItem p {
+.cartItemContent p {
   margin: 0.15rem 0;
   font-size: 1rem;
   color: #555;
 }
 
-.cartItem p strong {
+.cartItemContent p strong {
   color: #e63946;
 }
 
-/* Кнопка удаления с градиентом и тенями */
-.removeBtn {
-  margin-top: 0.8rem;
-  align-self: flex-start;
-  padding: 0.5rem 1.2rem;
-  background: linear-gradient(135deg, rgba(255, 110, 199, 0.8), rgba(91, 157, 255, 0.8));
-  border: none;
-  border-radius: 15px;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
-  text-shadow:
-    0 0 3px rgba(0, 0, 0, 0.3),
-    0 0 8px rgba(0, 0, 0, 0.5),
-    2px 2px 15px rgba(0, 0, 0, 0.7),
-    2px 2px 20px rgba(0, 0, 0, 0.8);
-  transition: background 0.3s ease;
+.cartItemActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.removeBtn:hover {
-  background: linear-gradient(135deg, rgba(255, 90, 170, 1), rgba(70, 130, 255, 1));
+.cartItemActions button {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  width: max-content;
+  align-self: flex-end;
 }
 
-/* Горизонтальная линия перед итогом */
-hr {
-  margin: 2rem 0;
-  border: none;
-  border-top: 1px solid #ddd;
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
-/* Итоговая сумма */
-.cart > h3 {
-  text-align: right;
+.totalSum {
   font-size: 1.6rem;
   font-weight: 700;
   color: #1a1a1a;
 }
 
-/* Кнопка Оформить заказ — похожий стиль, но чуть больше и с отступами */
 .checkoutBtn {
-  margin-top: 2rem;
-  padding: 0.9rem 2.5rem;
-  font-size: 1.2rem;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   background: linear-gradient(135deg, rgba(255, 110, 199, 0.85), rgba(91, 157, 255, 0.85));
   border: none;
@@ -125,7 +106,6 @@ hr {
     3px 3px 25px rgba(0, 0, 0, 0.85);
   box-shadow: 0 6px 15px rgba(91, 157, 255, 0.6);
   transition: background 0.3s ease, box-shadow 0.3s ease;
-  align-self: flex-end;
 }
 
 .checkoutBtn:hover {

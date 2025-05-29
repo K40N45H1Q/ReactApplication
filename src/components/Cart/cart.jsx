@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import styles from "./cart.module.css";
-import shared from "../../shared.module.css"
+import shared from "../../shared.module.css";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "http://127.0.0.1:8000";
 const USER_ID = 1;
@@ -16,7 +17,7 @@ export default function CartProvider({ children }) {
       const data = await res.json();
       setCart(data);
     } catch (e) {
-      console.error("Ошибка загрузки корзины", e);
+      console.error("Failed to load cart", e);
     }
   };
 
@@ -32,7 +33,7 @@ export default function CartProvider({ children }) {
       );
       if (!res.ok) {
         const error = await res.json();
-        throw new Error(error.detail || "Ошибка добавления в корзину");
+        throw new Error(error.detail || "Failed to add to cart");
       }
       await fetchCart();
     } catch (e) {
@@ -48,7 +49,7 @@ export default function CartProvider({ children }) {
       );
       if (!res.ok) {
         const error = await res.json();
-        throw new Error(error.detail || "Ошибка удаления из корзины");
+        throw new Error(error.detail || "Failed to remove from cart");
       }
       await fetchCart();
     } catch (e) {
@@ -64,16 +65,20 @@ export default function CartProvider({ children }) {
 }
 
 export function Cart() {
+  const navigate = useNavigate();
   const { cart, removeFromCart } = useContext(CartContext);
 
-  if (cart.length === 0)
-    return <div className={styles.empty}>Корзина пуста</div>;
+  if (cart.length === 0) {
+    return <div className={styles.empty}>Your cart is empty</div>;
+  }
 
-  const totalSum = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const totalSum = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
-  // Обработчик оформления заказа
   const handleCheckout = () => {
-    alert("Спасибо за заказ! Функционал оформления пока не реализован.");
+    navigate("/order");
   };
 
   return (
@@ -83,30 +88,34 @@ export function Cart() {
           {image_url && (
             <img src={image_url} alt={name} className={styles.cartImage} />
           )}
-          <div>
+
+          <div className={styles.cartItemContent}>
             <h4>{name}</h4>
-            <p>Цена за шт.: €{price}</p>
-            <p>Количество: {quantity}</p>
-            <p><strong>Итого: €{price * quantity}</strong></p>
-            {/* Удаляем всё количество товара */}
+            <p>Unit price: €{price}</p>
+            <p>Quantity: {quantity}</p>
+            <p><strong>Total: €{price * quantity}</strong></p>
+          </div>
+
+          <div className={styles.cartItemActions}>
             <button
-              className={shared.defaultButton} style={{
-                padding: '1%',
-                fontSize: '1rem',
-                width: '50%',
-              }}
+              className={shared.defaultButton}
               onClick={() => removeFromCart(id, quantity)}
             >
-              Удалить
+              Remove
             </button>
           </div>
         </div>
       ))}
-      <hr />
-      <h3>Общая сумма: €{totalSum}</h3>
-      <button className={shared.defaultButton} style={{ padding: '3%', fontSize: '1.2rem' }} onClick={handleCheckout}>
-        Оформить заказ
-      </button>
+
+      <div className={styles.totalRow}>
+        <h3 className={styles.totalSum}>Total: €{totalSum}</h3>
+        <button
+          className={`${shared.defaultButton} ${styles.checkoutBtn}`}
+          onClick={handleCheckout}
+        >
+          Checkout
+        </button>
+      </div>
     </div>
   );
 }
