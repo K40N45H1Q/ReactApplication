@@ -4,7 +4,7 @@ import styles from "./product.module.css";
 import shared from "../../shared.module.css"
 import { CartContext } from "../Cart/cart";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://reactapplicationbot-1.onrender.com";
 
 export default function Product() {
   const { id } = useParams();

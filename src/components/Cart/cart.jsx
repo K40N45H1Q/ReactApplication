@@ -3,7 +3,7 @@ import styles from "./cart.module.css";
 import shared from "../../shared.module.css";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://reactapplicationbot-1.onrender.com";
 const USER_ID = 1;
 
 export const CartContext = createContext();
