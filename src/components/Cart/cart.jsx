@@ -1,75 +1,26 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import styles from "./cart.module.css";
 import shared from "../../shared.module.css";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "./cartProvider";
 
-const API_URL = "https://reactapplicationbot-1.onrender.com";
-const USER_ID = 1;
-
-export const CartContext = createContext();
-
-export default function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
-
-  const fetchCart = async () => {
-    try {
-      const res = await fetch(`${API_URL}/get_cart/?user_id=${USER_ID}`);
-      const data = await res.json();
-      setCart(data);
-    } catch (e) {
-      console.error("Failed to load cart", e);
-    }
-  };
-
-  useEffect(() => {
-    fetchCart();
-  }, []);
-
-  const addToCart = async (product, quantity) => {
-    try {
-      const res = await fetch(
-        `${API_URL}/add_to_cart/?user_id=${USER_ID}&product_id=${product.id}&quantity=${quantity}`,
-        { method: "POST" }
-      );
-      if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.detail || "Failed to add to cart");
-      }
-      await fetchCart();
-    } catch (e) {
-      alert(e.message);
-    }
-  };
-
-  const removeFromCart = async (productId, quantity) => {
-    try {
-      const res = await fetch(
-        `${API_URL}/del_from_cart/?user_id=${USER_ID}&product_id=${productId}&quantity=${quantity}`,
-        { method: "DELETE" }
-      );
-      if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.detail || "Failed to remove from cart");
-      }
-      await fetchCart();
-    } catch (e) {
-      alert(e.message);
-    }
-  };
-
-  return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
-      {children}
-    </CartContext.Provider>
-  );
-}
+// URL бэкенда не нужен здесь, он уже в CartProvider
 
 export function Cart() {
   const navigate = useNavigate();
-  const { cart, removeFromCart } = useContext(CartContext);
+  const {
+    cart,
+    initiatePayment,
+    isLoading,
+    // clearCart // clearCart больше не вызывается здесь после checkout
+  } = useContext(CartContext);
+
+  if (!Array.isArray(cart)) {
+    return <div className={styles.empty}>Error: Cart data is corrupted. Please refresh or contact support.</div>;
+  }
 
   if (cart.length === 0) {
-    return <div className={styles.empty}>Your cart is empty</div>;
+    return <div className={styles.empty}>Your cart is empty.</div>;
   }
 
   const totalSum = cart.reduce(
@@ -77,43 +28,67 @@ export function Cart() {
     0
   );
 
-  const handleCheckout = () => {
-    navigate("/order");
+  const handleCheckout = async () => {
+    if (cart.length === 0) {
+      alert("Your cart is empty! Add products to proceed to checkout.");
+      navigate('/');
+      return;
+    }
+
+    const paymentData = await initiatePayment();
+
+    if (paymentData && paymentData.id) {
+      alert("Order created! Proceeding to payment.");
+      
+      // !!! ВЫЗОВ clearCart() УБРАН ОТСЮДА !!!
+      // Корзина теперь будет очищена на бэкенде только после фактической оплаты.
+      // Состояние фронтенда обновится при следующем fetchCart (например, при повторном заходе в корзину).
+      // Если вы хотите *визуально* очистить корзину сразу, не удаляя её на бэкенде,
+      // можете использовать setCart([]) напрямую здесь, но это будет временная рассинхронизация.
+      // Например: setCart([]); // Если у вас есть прямой доступ к setCart из провайдера
+
+      navigate(`/payment/${paymentData.id}`, {
+        state: {
+          orderId: paymentData.id,
+          paymentAddress: paymentData.payment_address,
+          paymentAmount: paymentData.payment_amount,
+          currency: 'BTC'
+        }
+      });
+    } else {
+      // initiatePayment уже выводит alert при ошибке.
+    }
   };
 
   return (
     <div className={styles.cart}>
       {cart.map(({ id, name, price, image_url, quantity }) => (
         <div key={id} className={styles.cartItem}>
-          {image_url && (
-            <img src={image_url} alt={name} className={styles.cartImage} />
-          )}
+          <div className={styles.cartImageWrapper}>
+            {image_url && (
+              <img src={image_url} alt={name} className={styles.cartImage} />
+            )}
+          </div>
 
           <div className={styles.cartItemContent}>
             <h4>{name}</h4>
-            <p>Unit price: €{price}</p>
+            <p>Unit price: €{price.toFixed(2)}</p>
             <p>Quantity: {quantity}</p>
-            <p><strong>Total: €{price * quantity}</strong></p>
-          </div>
-
-          <div className={styles.cartItemActions}>
-            <button
-              className={shared.defaultButton}
-              onClick={() => removeFromCart(id, quantity)}
-            >
-              Remove
-            </button>
+            <p>
+              <strong>Total: €{(price * quantity).toFixed(2)}</strong>
+            </p>
           </div>
         </div>
       ))}
 
       <div className={styles.totalRow}>
-        <h3 className={styles.totalSum}>Total: €{totalSum}</h3>
+        <h3 className={styles.totalSum}>Total: €{totalSum.toFixed(2)}</h3>
         <button
           className={`${shared.defaultButton} ${styles.checkoutBtn}`}
           onClick={handleCheckout}
+          disabled={cart.length === 0 || isLoading}
         >
-          Checkout
+          {isLoading ? "Processing..." : "Checkout"}
         </button>
       </div>
     </div>

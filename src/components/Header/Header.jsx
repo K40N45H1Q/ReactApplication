@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 import shared from '../../shared.module.css'
 import { FiSend, FiHome, FiHeart, FiShoppingCart } from 'react-icons/fi';
 
-const API_BASE_URL = "https://reactapplicationapi.onrender.com";
+const API_BASE_URL = "https://reactapplicationbot-1.onrender.com";
 
 const Header = () => {
     const [username, setUsername] = useState('Guest');
@@ -23,7 +23,7 @@ const Header = () => {
         }
     }, []);
 
-    const avatarUrl = userId ? `${API_BASE_URL}/avatar/${userId}` : null;
+    const avatarUrl = userId ? `${API_BASE_URL}/get_avatar/${userId}` : null;
 
     return (
         <header className="header">

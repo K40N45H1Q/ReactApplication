@@ -2,9 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./product.module.css";
 import shared from "../../shared.module.css"
-import { CartContext } from "../Cart/cart";
+import { CartContext } from '../Cart/cartProvider'; 
 
-const API_URL = "https://reactapplicationbot-1.onrender.com";
+const API_URL = "http://127.0.0.1:8000";
 
 export default function Product() {
   const { id } = useParams();
@@ -39,7 +39,8 @@ export default function Product() {
       alert("Количество должно быть не меньше 1");
       return;
     }
-    addToCart(product, quantity);
+    // === ИЗМЕНЕНИЕ ЗДЕСЬ: Передаем product.id вместо всего объекта product ===
+    addToCart(product.id, quantity); 
     alert(`Добавлено ${quantity} шт. товара "${product.name}" в корзину`);
   };
 

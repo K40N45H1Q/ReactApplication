@@ -17,7 +17,7 @@ import technique1 from "../../assets/technique1.png";
 import technique2 from "../../assets/technique2.png";
 
 // ✅ Важно: добавлен протокол http://
-const api_url = "https://reactapplicationbot-1.onrender.com";
+const api_url = "http://127.0.0.1:8000";
 
 const gradientClasses = [
   "gradient-a",

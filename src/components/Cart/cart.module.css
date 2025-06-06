@@ -1,7 +1,7 @@
 .cart {
   max-width: 900px;
-  background-color: #F5F5F5;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  background-color: #f5f5f5;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   color: #222;
   padding: 2rem;
   margin: auto;
@@ -18,38 +18,66 @@
   font-style: italic;
 }
 
+/* Стиль одного товара в корзине */
 .cartItem {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   gap: 1.5rem;
   padding: 1rem 0;
   border-bottom: 1px solid #eee;
+  align-items: flex-start;
 }
 
-.cartItem:last-child {
-  border-bottom: none;
+/* Обёртка для картинки + кнопки "Remove" под ней */
+.cartImageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px; /* фиксированная ширина для картинки и кнопки */
+  flex-shrink: 0;
 }
 
+/* Картинка товара */
 .cartImage {
   width: 100px;
   height: 100px;
   object-fit: contain;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
 }
 
+/* Кнопка "Remove" под картинкой */
+.cartImageWrapper button {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.cartImageWrapper button:hover {
+  background-color: #b32a36;
+}
+
+/* Контент товара (название, цены, количество) */
 .cartItemContent {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .cartItemContent h4 {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.3rem 0;
   font-size: 1.25rem;
   color: #1a1a1a;
+  word-wrap: break-word;
 }
 
 .cartItemContent p {
@@ -62,19 +90,7 @@
   color: #e63946;
 }
 
-.cartItemActions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.cartItemActions button {
-  padding: 0.5rem 1rem;
-  font-size: 0.95rem;
-  width: max-content;
-  align-self: flex-end;
-}
-
+/* Итоговая сумма и кнопка Checkout */
 .totalRow {
   display: flex;
   justify-content: space-between;
@@ -93,16 +109,18 @@
   padding: 0.9rem 2rem;
   font-size: 1.1rem;
   font-weight: 700;
-  background: linear-gradient(135deg, rgba(255, 110, 199, 0.85), rgba(91, 157, 255, 0.85));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 110, 199, 0.85),
+    rgba(91, 157, 255, 0.85)
+  );
   border: none;
   border-radius: 15px;
   color: white;
   cursor: pointer;
   user-select: none;
-  text-shadow:
-    0 0 4px rgba(0, 0, 0, 0.35),
-    0 0 10px rgba(0, 0, 0, 0.5),
-    3px 3px 18px rgba(0, 0, 0, 0.75),
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.35),
+    0 0 10px rgba(0, 0, 0, 0.5), 3px 3px 18px rgba(0, 0, 0, 0.75),
     3px 3px 25px rgba(0, 0, 0, 0.85);
   box-shadow: 0 6px 15px rgba(91, 157, 255, 0.6);
   transition: background 0.3s ease, box-shadow 0.3s ease;
