@@ -3,7 +3,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import styles from "./order.module.css";
 import shared from "../../shared.module.css";
 
-const API_URL = "http://127.0.0.1:8000"; // Убедитесь, что это правильный URL вашего FastAPI бэкенда
+const API_URL = "https://reactapplicationbot.onrender.com"; // Убедитесь, что это правильный URL вашего FastAPI бэкенда
 
 export default function OrderPage() {
   const { id: orderId } = useParams();

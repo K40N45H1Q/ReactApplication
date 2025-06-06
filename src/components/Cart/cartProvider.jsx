@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useCallback } from "react";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://reactapplicationbot.onrender.com";
 
 // Определяем USER_ID один раз при загрузке модуля
 // Он будет числом, как и требуется

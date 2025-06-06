@@ -2,7 +2,7 @@ import "./payment.css";
 import React, { useEffect, useState, useRef, useCallback } from "react"; // Добавлен useCallback
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://reactapplicationbot.onrender.com";
 const CHECK_INTERVAL = 10000; // Check status every 10 seconds (10000 ms)
 
 export default function Payment() {

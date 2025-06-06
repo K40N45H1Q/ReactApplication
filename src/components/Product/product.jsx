@@ -4,7 +4,7 @@ import styles from "./product.module.css";
 import shared from "../../shared.module.css" // Предполагается, что shared.module.css содержит общие стили кнопок
 import { CartContext } from '../Cart/cartProvider'; 
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://reactapplicationbot.onrender.com";
 
 export default function Product() {
   const { id } = useParams();

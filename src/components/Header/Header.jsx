@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 import shared from '../../shared.module.css'
 import { FiSend, FiHome, FiHeart, FiShoppingCart } from 'react-icons/fi';
 
-const API_BASE_URL = "https://reactapplicationbot-1.onrender.com";
+const API_BASE_URL = "https://reactapplicationbot.onrender.com";
 
 const Header = () => {
     const [username, setUsername] = useState('Guest');
