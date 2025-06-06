@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./product.module.css";
-import shared from "../../shared.module.css"
+import shared from "../../shared.module.css" // Предполагается, что shared.module.css содержит общие стили кнопок
 import { CartContext } from '../Cart/cartProvider'; 
 
 const API_URL = "http://127.0.0.1:8000";
@@ -32,16 +32,23 @@ export default function Product() {
   }, [id]);
 
   if (loading) return <div className={styles.loading}>Загрузка товара...</div>;
-  if (!product) return <div className={styles.error}>Товар не найден</div>;
+  if (!product) return <div className={styles.error}>Товар не найдена</div>; // Исправлено "Товар не найден" на "Товар не найдена"
 
   const handleAddToCart = () => {
     if (quantity < 1) {
       alert("Количество должно быть не меньше 1");
       return;
     }
-    // === ИЗМЕНЕНИЕ ЗДЕСЬ: Передаем product.id вместо всего объекта product ===
     addToCart(product.id, quantity); 
     alert(`Добавлено ${quantity} шт. товара "${product.name}" в корзину`);
+  };
+
+  const handleDecrementQuantity = () => {
+    setQuantity(prevQuantity => Math.max(1, prevQuantity - 1));
+  };
+
+  const handleIncrementQuantity = () => {
+    setQuantity(prevQuantity => prevQuantity + 1);
   };
 
   return (
@@ -61,20 +68,32 @@ export default function Product() {
           <strong>Цена:</strong> €{product.price}
         </p>
 
-        <label className={styles.quantityLabel}>
-          Количество:
-          <input
-            type="number"
-            min="1"
-            value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
-            className={styles.quantityInput}
-          />
-        </label>
+        <div className={styles.quantityControl}>
+            <button
+                className={styles.quantityButton}
+                onClick={handleDecrementQuantity}
+                disabled={quantity <= 1}
+            >
+                –
+            </button>
+            <span className={styles.quantityDisplay}>{quantity}</span>
+            <button
+                className={styles.quantityButton}
+                onClick={handleIncrementQuantity}
+            >
+                +
+            </button>
+        </div>
 
-        <button className={shared.defaultButton} style={{ padding: '3%', fontSize: '1.2rem' }} onClick={handleAddToCart}>
+        {/* --- ВОССТАНОВЛЕН ИСХОДНЫЙ СТИЛЬ КНОПКИ --- */}
+        <button
+          className={shared.defaultButton} // Используем только shared.defaultButton
+          style={{ padding: '3%', fontSize: '1.2rem' }} // Твои inline-стили остаются
+          onClick={handleAddToCart}
+        >
           Добавить в корзину
         </button>
+        {/* ------------------------------------------- */}
       </div>
     </div>
   );

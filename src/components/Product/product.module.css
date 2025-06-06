@@ -1,101 +1,130 @@
 /* Родительский контейнер для карточки, должен занимать доступное место */
 .wrapper {
   display: flex;
-  justify-content: center;  /* центр по горизонтали */
-  align-items: center;      /* центр по вертикали */
-  min-height: 60vh;         /* исправлено с 902vh на 60vh */
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px); /* Учитываем высоту возможного хедера/футера, если они есть */
   width: 100%;
   box-sizing: border-box;
   padding: 1rem;
-  margin-top: 5%;
+  margin-top: 2%; /* Уменьшил отступ сверху */
+  margin-bottom: 2%; /* Добавил отступ снизу */
 }
 
 /* Карточка */
 .productCard {
-  width: 400px;
-  max-width: 90vw;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 360px; /* Уменьшил ширину для лучшей вместимости */
+  max-width: 95vw; /* Увеличил max-width для адаптивности на очень маленьких экранах */
+  padding: 1.5rem; /* Уменьшил padding */
+  border-radius: 12px; /* Вернул более умеренные углы */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Вернул исходную тень */
   background-color: #fff;
   color: #222;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* Убрал transition для карточки */
 }
 
-/* остальное оставляем как было */
 .productTitle {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem; /* Уменьшил размер для лучшей вместимости */
+  margin-bottom: 0.8rem; /* Уменьшил отступ */
   color: #1a1a1a;
   text-align: center;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .productImage {
-  width: 300px;
-  height: 300px;
+  width: 250px; /* Уменьшил размер изображения */
+  height: 250px;
   object-fit: contain;
-  margin-bottom: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 1rem; /* Уменьшил отступ */
+  border-radius: 10px; /* Вернул исходные углы */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Вернул исходную тень */
   background-color: #f9f9f9;
 }
 
 .productPrice {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1.8rem;
+  font-size: 1.3rem; /* Вернул исходный размер */
+  font-weight: 600; /* Вернул исходный вес */
+  margin-bottom: 1rem; /* Уменьшил отступ */
   color: #e63946;
   text-align: center;
 }
 
-.quantityLabel {
-  font-weight: 600;
+/* --- СТИЛИ ДЛЯ КОНТРОЛЯ КОЛИЧЕСТВА (без существенных изменений, они были хороши) --- */
+.quantityControl {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
+  gap: 0.8rem; /* Немного уменьшил промежуток */
+  margin-bottom: 1.5rem; /* Отступ до кнопки "Добавить в корзину" */
+  padding: 0.4rem 0.8rem; /* Немного уменьшил padding */
+  border: 1px solid #ddd;
+  border-radius: 20px; /* Немного уменьшил скругление */
+  background-color: #fefefe;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.quantityButton {
+  background-color: #e6e6e6;
   color: #333;
-  margin-bottom: 1.8rem;
-}
-
-.quantityInput {
-  width: 60px;
-  padding: 0.3rem 0.5rem;
-  font-size: 1rem;
-  border: 1.8px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 0.3s ease;
-}
-
-.quantityInput:focus {
-  outline: none;
-  border-color: #3a86ff;
-  box-shadow: 0 0 4px #3a86ff;
-}
-
-.addToCartBtn {
-  background-color: #3a86ff;
-  color: white;
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0.75rem 2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 50%;
+  width: 32px; /* Вернул исходный размер */
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem; /* Вернул исходный размер шрифта */
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  user-select: none;
+  flex-shrink: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.addToCartBtn:hover {
-  background-color: #2f6fdb;
+.quantityButton:hover {
+  background-color: #d1d1d1;
+  transform: translateY(-1px);
 }
+
+.quantityButton:active {
+  background-color: #b0b0b0;
+  transform: translateY(0);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.quantityButton:disabled {
+  background-color: #f0f0f0;
+  color: #bbb;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.quantityDisplay {
+  font-size: 1.1rem; /* Вернул исходный размер */
+  font-weight: 600;
+  color: #1a1a1a;
+  min-width: 25px; /* Вернул исходную ширину */
+  text-align: center;
+}
+/* --- КОНЕЦ СТИЛЕЙ КОНТРОЛЯ КОЛИЧЕСТВА --- */
+
+/* --- УДАЛЕНЫ СТИЛИ .addToCartBtn, ТАК КАК ОНИ БУДУТ ИЗ shared.defaultButton --- */
+/*
+.addToCartBtn {
+  ... все эти стили удалены ...
+}
+*/
 
 .loading, .error {
   max-width: 480px;
-  margin: 2rem auto;
-  font-size: 1.2rem;
+  margin: 2rem auto; /* Вернул исходные отступы */
+  font-size: 1.2rem; /* Вернул исходный размер */
   color: #666;
   text-align: center;
+  /* Убрал font-style: italic; */
 }
